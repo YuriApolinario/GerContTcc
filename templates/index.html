@@ -3,209 +3,137 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Barbearia</title>
-  <link rel="stylesheet" href="{% static 'node_modules/font-awesome/css/font-awesome.min.css'%}" />
-  <link rel="stylesheet" href="{% static 'node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css'%}" />
-  <link rel="stylesheet" href="{% static 'node_modules/flag-icon-css/css/flag-icon.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <style media="screen">
-    #background {
-      background: url=("{% static 'images/img/barbearia.jpeg' %}");
-    }
-  </style>
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+        crossorigin="anonymous"></script>
 </head>
 
-<body>
-
-  <div class=" container-scroller">
-    {% block nav %}
-    <!-- partial:partials/_navbar.html -->
-    <nav class="navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="bg-white text-center navbar-brand-wrapper">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="" /></a>  
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src=""
-            alt=""></a>
-      </div>
-
-      
-
-      <div class="navbar-menu-wrapper d-flex align-items-center">
-
-        
-
-
-
-        <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3" type="button"
-          data-toggle="minimize">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <form class="form-inline mt-2 mt-md-0 d-none d-lg-block">
-          <input class="form-control mr-sm-2 search" type="text" placeholder="Search">
-        </form>
-        <ul class="navbar-nav ml-lg-auto d-flex align-items-center flex-row">
-          <li class="nav-item">
-            <a class="nav-link profile-pic" href="#"><img class="rounded-circle" src="static/images/face.jpg"
-                alt=""></a>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-th"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                  <i class="fa fa-sign-in" aria-hidden="true"></i>
-                  Entrar
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <i class="fa fa-user-plus" aria-hidden="true"></i>
-                  Registrar
-                </a>
-              </li>
-        </ul>
-        <button class="navbar-toggler navbar-dark navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
-
-
-    <div class="container-fluid">
-      <div class="row row-offcanvas row-offcanvas-right">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="bg-white sidebar sidebar-offcanvas" id="sidebar">
-          
-
-          <ul class="nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'index' %}">
-                <img src="static/images/icons/1.png" alt="">
-                <span class="menu-title">Dashboard</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sobre.html">
-                <img src="static/images/icons/2.png" alt="">
-                <span class="menu-title">Sobre</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-
-              <a class="nav-link" href="contato.html">
-                <img src="static/images/icons/2.png" alt="">
-                <span class="menu-title">contato</span>
-              </a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Cadastros
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href=""></a>Estado</a>
-                <a class="dropdown-item" href="">Cidade</a>
-                <a class="dropdown-item" href="">barbeiro</a>
-                <a class="dropdown-item" href="">cliente</a>
-                <a class="dropdown-item" href="">agenda</a>
-                <a class="dropdown-item" href="">caixa</a>
-
-              </div>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Consulta
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="">caixas</a>
-                <a class="dropdown-item" href="">Estado</a>
-                <a class="dropdown-item" href="">Cidade</a>
-                <a class="dropdown-item" href="">Barbeiros</a>
-                <a class="dropdown-item" href="">clientes</a>
-                
-              </div>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                <img src="static/images/icons/2.png" alt="">
-                <span class="menu-title">Curriculo</span>
-              </a>
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <img src="static/images/icons/2.png" alt="">
-                  <span class="menu-title">Sair</span>
-                </a>
-            </li>
-           </ul> 
-
-        </nav>
-        {% endblock %}
-
-
-        {% block conteudo%}
-        <div class="content-wrapper">
-
-
-        </div>
-
-        {% endblock%}
-
-
-
-        {% block rodape %}
-        <!-- partial:partials/_footer.html -->
-
-        <div class="footer">
-          <footer class="footer">
-            <div class="container-fluid clearfix">
-              <span class="float-right">
-                <a href="#">Star Admin</a> &copy; 2017
-              </span>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Start Bootstrap</a><button
+            class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
+                class="fas fa-bars"></i></button><!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search"
+                    aria-describedby="basic-addon2" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                </div>
             </div>
-          </footer>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Interface</div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
+                            aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Layouts
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="layout-static.html">Static
+                                    Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                            aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Pages
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                                    data-target="#pagesCollapseAuth" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth">Authentication
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
+                                    data-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav"><a class="nav-link"
+                                            href="login.html">Login</a><a class="nav-link"
+                                            href="register.html">Register</a><a class="nav-link"
+                                            href="password.html">Forgot Password</a></nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                                    data-target="#pagesCollapseError" aria-expanded="false"
+                                    aria-controls="pagesCollapseError">Error
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
+                                    data-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="401.html">401
+                                            Page</a><a class="nav-link" href="404.html">404 Page</a><a class="nav-link"
+                                            href="500.html">500 Page</a></nav>
+                                </div>
+                            </nav>
+                        </div>
 
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Start Bootstrap
+                </div>
+            </nav>
         </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
 
-        <!-- partial -->
-      </div>
+
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
-
-
-  </div>
-  {% endblock %}
-
-  {% block javascript %}
-
-
-
-  <script src="{% static 'node_modules/jquery/dist/jquery.min.js'%}"></script>
-  <script src="{% static 'node_modules/popper.js/dist/umd/popper.min.js' %}"></script>
-  <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'node_modules/chart.js/dist/Chart.min.js' %}"></script>
-  <script src="{% static 'node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js' %}"></script>
-  <script src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyB5NXz9eVnyJOA81wimI8WYE08kW_JMe8g&callback=initMaps"
-  async defer></script>
-  <script src = "{% static 'js/jquery.mask.js '%}"></script>  
-  <script src="{% static 'js/off-canvas.js' %}"></script>
-  <script src="{% static 'js/hoverable-collapse.js'%}"></script>
-  <script src="{% static 'js/misc.js' %}"></script>
-  <script src="{% static 'js/chart.js' %}"></script>
-  <script src="{% static 'js/maps.js' %}"></script>
-  {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 </body>
-
 
 </html>
