@@ -18,32 +18,20 @@ class Cidade(models.Model):
     def __str__(self):
         return self.nome + " - " + self.estado.sigla
 
+class Perfil(models.Model):
+    nome = models.CharField(max_length=100)
+    endereco = models.CharField(max_length=100)
+    cpf = models.CharField(max_length=11, unique=True)
+    sexo = models.CharField(max_length=10, unique=True)
+    telefone = models.CharField(max_length= 20)
+
 
 class Empresa(models.Model):
     razao_social = models.CharField(max_length=100)
     cnpj = models.CharField(max_length=15, unique=True)
     inscricao_estadual = models.CharField(max_length=45)
-    cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT)
     endereço = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self
-
-
-class Funcionario(models.Model):
-    nome = models.CharField(max_length=100)
-    cpf = models.CharField(max_length=11, unique=True)
-    funcao = models.CharField(max_length=50)
-    empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
-
-
-class Contratada(models.Model):
-    empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
-
-
-class Contrante(models.Model):
-    empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
-
+    minha_empresa = models.CharField(max_length=100)
 
 class Propriedade(models.Model):
     nome_propriedade = models.CharField(max_length=45)
@@ -51,5 +39,4 @@ class Propriedade(models.Model):
     area_propriedade = models.CharField(max_length=45)
     cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT)
 
-# class Contrato(model.Models):
-#         Contratada
+
