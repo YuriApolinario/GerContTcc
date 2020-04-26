@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'paginas.apps.PaginasConfig',
     'cadastros.apps.CadastrosConfig',
     'django.contrib.admin',
     'django.contrib.auth',
