@@ -5,18 +5,18 @@ from django.db import models
 
 class Estado(models.Model):
     sigla = models.CharField(max_length=2, unique=True)
-    mome = models.CharField(max_length=50)
+    mome = models.CharField(max_length=50, verbose_name="nome do estado")
 
     def __str__(self):
-        return self.sigla + " - " + self.nome
-
+        return "{} ({})".format(self.sigla, self.nome)
 
 class Cidade(models.Model):
     nome = models .CharField(max_length=50)
     estado = models.ForeignKey(Estado, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.nome + " - " + self.estado.sigla
+        return "{} ({})".format(self.nome, self.estado.nome)
+
 class User(models.Model):
     usuario = models.CharField(max_length=20)
     email = models.EmailField(max_length=100)
@@ -48,13 +48,13 @@ class Propriedade(models.Model):
     cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT)
 
 class Contrato(models.Model):
-    #contratada = models.ForeignKey(Empresa, on_delete= models.PROTECT)
-    contratante = models.ForeignKey(Empresa, on_delete= models.PROTECT)
     servico = models.ForeignKey(Servico, on_delete= models.PROTECT)
     propriedade = models.ForeignKey(Propriedade, on_delete= models.PROTECT)
     data_inicial = models.DateField(max_length= 8)
     data_final = models.DateField(max_length= 8)
     registrado_por = models.ForeignKey(User, on_delete= models.PROTECT)
     registrado_em = models.DateField(max_length=8)
-
+ 
+    #contratada = models.ForeignKey(Empresa, on_delete= models.PROTECT)
+    contratante = models.ForeignKey(Empresa, on_delete= models.PROTECT)
 
