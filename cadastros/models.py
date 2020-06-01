@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Estado(models.Model):
-    sigla = models.CharField(max_length=2, unique=True)
-    mome = models.CharField(max_length=50, verbose_name="nome do estado")
+    sigla = models.CharField(max_length=2)
+    nome = models.CharField(max_length=50, verbose_name="nome do estado")
 
     def __str__(self):
         return "{} ({})".format(self.sigla, self.nome)
@@ -30,22 +30,33 @@ class Perfil(models.Model):
     telefone = models.CharField(max_length= 20)
     user = models.ForeignKey(User, on_delete= models.PROTECT)
 
+    def __str__(self):
+        return"{}({})".format(self.nome, self.endereco, self.cpf, self.sexo, self.telefone)
 class Servico(models.Model):
     descricao_servico = models.CharField(max_length=100)
     valor = models.FloatField(max_length=10)
+
+    def  __str__(self):
+            return "{} ({})".format(self.descricao_servico, self.valor)
 
 class Empresa(models.Model):
     razao_social = models.CharField(max_length=100)
     cnpj = models.CharField(max_length=15, unique=True)
     inscricao_estadual = models.CharField(max_length=45)
-    endereço = models.CharField(max_length=100)
+    endereco = models.CharField(max_length=100)
     minha_empresa = models.CharField(max_length=100)
+
+    def __str__(self):
+        return "{} ({})".format(self.razao_social, self.cnpj, self.inscricao_estadual, self.endereco, self.minha_empresa)
 
 class Propriedade(models.Model):
     nome_propriedade = models.CharField(max_length=45)
-    endereço = models.CharField(max_length=100)
+    endereco = models.CharField(max_length=100)
     area_propriedade = models.CharField(max_length=45)
     cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return "{} ({})".format(self.nome_propriedade, self.endereco, self.area_propriedade, self.cidade)
 
 class Contrato(models.Model):
     servico = models.ForeignKey(Servico, on_delete= models.PROTECT)

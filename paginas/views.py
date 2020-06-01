@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 
 # Create your views here.
 class PaginaInicial(TemplateView):
-	template_name = "cadastros/modelo.html"
+	template_name = "paginas/modelo.html"
 
 class SobreView(TemplateView):
-	template_name = "cadastros/sobre.html"
+	template_name = "paginas/sobre.html"
