@@ -1,21 +1,30 @@
 {% extends 'paginas/modelo.html'%}
 
 {% block titulo %}
-<title>Sobre o TCC</title>
+<title>Cadastro</title>
 {% endblock%}
 
 {% block conteudo %}
-<h1>cadastro </h1>
-     <p class="lead">
-         preencha todos os campos obrigatorios
-     </p>
-
-     <form action="" method="POST">
-         {% csrf_token %}
-         {{form.as_p}}
-         <button type="submit" class="btn btn-primary"> Cadastrar</button>
-     </form>
-{% endblock %}
-
-{% block rodape %}
+    <div class="container ">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+                <h1>cadastro </h1>
+                    <p class="lead">
+                        preencha todos os campos obrigatorios
+                    </p>
+                    <hr>
+                        <form action="" method="POST">
+                            <div class="row">
+                                <div class="col">
+                                {% csrf_token %}
+                                </div>
+                            </div>
+                            
+                            {{form.as_p}}
+                                
+                                <button type="submit" class="btn btn-primary"> Cadastrar</button>
+                            </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
