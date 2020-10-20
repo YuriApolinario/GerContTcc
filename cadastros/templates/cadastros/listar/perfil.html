@@ -13,10 +13,10 @@
             <div class="col-lg">
     
                 <h3 class="border-bottom">
-                    Lista de propriedades cadastrados
-    <a href="{% url 'cadastro-propriedade' %}" class="float-right btn btn-primary btn-sm">
+                    Lista de perfils cadastrados
+    <a href="{% url 'cadastro-perfil' %}" class="float-right btn btn-primary btn-sm">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        Novo propriedade
+        Novo perfil
     </a>
                 </h3>
     
@@ -30,8 +30,7 @@
     
                     <thead>
                         <tr>
-                            <th>propriedade</th>
-                            <th>Estado</th>
+                            <th>Nome</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -40,22 +39,23 @@
     
                         {% for obj in object_list %}
                         <tr>
-                            <td>{{ obj.nome_propriedade }}</td>
-                            <td>{{ obj.cidade }}</td>
+                            <td>{{ obj.nome }}</td>
+                            <td>{{ obj.endereco }}</td>
+                            <td>{{ obj.telefone }}</td>
                             
                             <td>
-                                <a href="{% url 'editar-propriedade' obj.pk %}" class="btn btn-outline-warning btn-sm">
+                                <a href="{% url 'editar-perfil' obj.pk %}" class="btn btn-outline-warning btn-sm">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </a>
                         
-                                <a href="{% url 'excluir-propriedade' obj.pk %}" class="btn btn-outline-danger btn-sm">
+                                <a href="{% url 'excluir-perfil' obj.pk %}" class="btn btn-outline-danger btn-sm">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>
                         </tr>
                         {% empty %}
                         <tr>
-                            <td colspan="100%">Nenhum propriedade cadastrado</td>
+                            <td colspan="100%">Nenhum perfil cadastrado</td>
                         </tr>
                         {% endfor %}
     

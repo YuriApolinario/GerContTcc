@@ -1,9 +1,8 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-# from django.views.list import ListView
-from django.views.generic.list import ListView
-
 
 from .models import *
+
+from django.views.generic.list import ListView
 
 from django.urls import reverse_lazy
 
@@ -37,10 +36,18 @@ class PropriedadeCreate(CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
 
+class PerfilCreate(CreateView):
+    model = Perfil
+    fields = ['nome', 'endereço', 'cpf', 'rg', 'sexo', 'telefone', 'usuario']
+    template_name = 'cadastros/form.html'
+    success_url = reverse_lazy('index')
+
 class ContratoCreate(CreateView):
     model = Contrato
-    fields = ['servico', 'propriedade', 'dta_inicial', 'data_final', 'registrado_por', 'registrado_em']
+    fields = ['servico', "propriedade", "data_inicial", "data_final", "registrado_por", "registrado_em", "contratante"]    
     template_name = 'cadastros/contrato.html'
+    success_url = reverse_lazy('index')
+
 ######################## UPDATE #######################
 
 class EstadoUpdate(UpdateView):
@@ -72,13 +79,25 @@ class PropriedadeUpdate(UpdateView):
     fields = ['nome_propriedade', 'endereco', 'area_propriedade']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
-  
-  ######################## DELETE #######################
 
+class PerfilUpdate(UpdateView):
+    model = Perfil
+    fields = ['nome', 'endereço', 'cpf', 'rg', 'sexo', 'telefone', 'usuario']
+    template_name = 'cadastros/form.html'
+    success_url = reverse_lazy('index')
+
+class ContratoUpdate(UpdateView):
+    model = Contrato
+    fields = ['servico', "propriedade", "data_inicial", "data_final", "registrado_por", "registrado_em", "contratante"]    
+    template_name = 'cadastros/contrato.html'
+    success_url = reverse_lazy('index')
+
+######################## DELETE #######################
 class EstadoDelete(DeleteView):
     model = Estado
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('index')
+
 
 class CidadeDelete(DeleteView):
     model = Cidade
@@ -100,16 +119,20 @@ class PropriedadeDelete(DeleteView):
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('index')
 
-##########################listView#######################
+class PerfilDelete(DeleteView):
+    model = Perfil
+    template_name = 'cadastros/form-excluir.html'
+    success_url = reverse_lazy('index')
 
+##########################listView#######################
 
 class EstadoList(ListView):
     model = Estado
     template_name = 'cadastros/listar/estado.html'
 
 class CidadeList(ListView):
-    model= Cidade
-    template_name = 'cadastros/listrar/cidade.html'
+    model = Cidade
+    template_name = 'cadastros/listar/cidade.html'
 
 class ServicoList(ListView):
     model = Servico
@@ -122,3 +145,7 @@ class EmpresaList(ListView):
 class PropriedadeList(ListView):
     model = Propriedade
     template_name = 'cadastros/listar/propriedade.html'
+
+class PerfilList(ListView):
+    model = Perfil
+    template_name = 'cadastros/listar/perfis.html'

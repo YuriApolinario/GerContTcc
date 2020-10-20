@@ -1,0 +1,24 @@
+{% extends 'paginas/modelo.html'  %}
+
+{% load static %}
+
+{% block conteudo %}
+    <div class="container ">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+                <p class="lead">
+                    confirme para excluir o registro 
+
+                </p>
+                <form action="" method="post">
+                    <p>Deseja excluir o registro: <strong>{{ object }}</strong></p>
+                        {% csrf_token %}
+                           
+                        {{form.as_p}}
+                                
+                    <button type="submit" class="btn btn-danger"> excluir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

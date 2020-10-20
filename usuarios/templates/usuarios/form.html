@@ -22,18 +22,11 @@
                             
                             {{form|crispy}}
                                 
-                                <button type="submit" class="btn btn-primary"> Cadastrar</button>
+                                <button type="submit" class="btn btn-primary"> Entrar</button>
                             </form>
             </div>
         </div>
     </div>
 {% endblock %}
 
-{% block scripts%}
-    <script>
-        $(document.ready(function(){
-            $("input[name*=data]").attr("type","date");
-        }));
-    </script>
 
-{% endblock %}

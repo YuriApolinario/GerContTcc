@@ -14,8 +14,7 @@ class Cidade(models.Model):
     nome = models .CharField(max_length=50)
     estado = models.ForeignKey(Estado, on_delete=models.PROTECT)
 
-    def __str__(self):
-        return "{} ({})".format(self.nome, self.estado.nome)
+    
 
 class User(models.Model):
     usuario = models.CharField(max_length=20)
@@ -28,10 +27,11 @@ class Perfil(models.Model):
     cpf = models.CharField(max_length=11, unique=True)
     sexo = models.CharField(max_length=10, unique=True)
     telefone = models.CharField(max_length= 20)
-    user = models.ForeignKey(User, on_delete= models.PROTECT)
+    #user = models.ForeignKey(User, on_delete= models.PROTECT)
 
     def __str__(self):
         return"{}({})".format(self.nome, self.endereco, self.cpf, self.sexo, self.telefone)
+        
 class Servico(models.Model):
     descricao_servico = models.CharField(max_length=100)
     valor = models.FloatField(max_length=10)
@@ -65,7 +65,6 @@ class Contrato(models.Model):
     data_final = models.DateField(max_length= 8)
     registrado_por = models.ForeignKey(User, on_delete= models.PROTECT)
     registrado_em = models.DateField(max_length=8)
- 
-    contratada = models.ForeignKey(Empresa, on_delete= models.PROTECT)
     contratante = models.ForeignKey(Empresa, on_delete= models.PROTECT)
+    
 

@@ -1,18 +1,28 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../../static/css/style.css">
-    <link rel="stylesheet" href="../../../static/css/navbar.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/one-page-wonder.css' %}" rel="stylesheet">
+  <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet">
+
+
 
     
 </head>
 <body>
   {% block menu %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="collapse navbar-collapse container" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -28,8 +38,11 @@
                       cadastros
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="{% url 'cadastro-estado' %}">Estado</a>
+                      <a class="dropdown-item" href="{% url 'cadastro-cidade' %}">Cidade</a> 
+                      <a class="dropdown-item" href="{% url 'cadastro-servico' %}">Servico</a>
+                      <a class="dropdown-item" href="{% url 'cadastro-propriedade' %}">Propriedade</a>
+                      <a class="dropdown-item" href="{% url 'cadastro-empresa' %}">Empresa</a>
                       
                     </div>
                   </li>
@@ -38,7 +51,11 @@
                       relatorios 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="{% url 'listar-estado' %}">relatorio estado</a>
+                      <a class="dropdown-item" href="{% url 'listar-cidade' %}">relatorio cidade</a> 
+                      <a class="dropdown-item" href="{% url 'listar-propriedade' %}">relatorio Propriedade</a>
+                      <a class="dropdown-item" href="{% url 'listar-empresa' %}">relatorio Empresa</a>
+                      <a class="dropdown-item" href="{% url 'listar-servico' %}">relatorio Serviços</a>
                       
                     </div>
                   </li>
@@ -58,8 +75,7 @@
     </footer>
   {% endblock %}
 </body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
+  
 </html>
