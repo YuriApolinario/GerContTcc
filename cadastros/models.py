@@ -66,6 +66,6 @@ class Contrato(models.Model):
     registrado_por = models.ForeignKey(User, on_delete= models.PROTECT)
     registrado_em = models.DateField(max_length=8)
  
-    #contratada = models.ForeignKey(Empresa, on_delete= models.PROTECT)
+    contratada = models.ForeignKey(Empresa, on_delete= models.PROTECT)
     contratante = models.ForeignKey(Empresa, on_delete= models.PROTECT)
 

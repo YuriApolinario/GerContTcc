@@ -1,16 +1,17 @@
 from django.urls import path 
 
-from .views import EstadoCreate, CidadeCreate, EmpresaCreate, PropriedadeCreate, ServicoCreate
+from .views import EstadoCreate, CidadeCreate, EmpresaCreate, PropriedadeCreate, ServicoCreate, contratoCreate
 from .views import EmpresaUpdate, PropriedadeUpdate, ServicoUpdate
 from .views import EstadoList, CidadeList, EmpresaList, PropriedadeList, ServicoList
 from .views import EstadoDelete, CidadeDelete, EmpresaDelete, PropriedadeDelete, ServicoDelete
 
 urlpatterns = [
-    #path('cadastros/Estado', EstadoCreate.as_view(), name = "cadastro-Estado")
-    #path('cadastros/cidade', CidadeCreate.as_view(), name ="cadastro-cidade"),           
+    path('cadastros/Estado', EstadoCreate.as_view(), name = "cadastro-Estado"),
+    path('cadastros/cidade', CidadeCreate.as_view(), name ="cadastro-cidade"),           
     path('cadastros/empresa/', EmpresaCreate.as_view(), name ="cadastro-empresa"),
     path('cadastros/propriedade/', PropriedadeCreate.as_view(), name ="cadastro-propriedade"),
     path('cadastros/servico/', ServicoCreate.as_view(), name ="cadastro-servico"),
+    path('cadastros/contrato/', contratoCreate.as_view(), name ="cadastro-contrato"),
 
     path('editar/empresa/<int:pk>', EmpresaUpdate.as_view(), name ='editar-empresa'),    
     path('editar/propriedade/<int:pk>', PropriedadeUpdate.as_view(), name ='editar-propriedade'),
