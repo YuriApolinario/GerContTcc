@@ -13,11 +13,12 @@ class EstadoCreate(CreateView):
     success_url = reverse_lazy('index')
 
 class CidadeCreate(CreateView):
-    models = Cidade
+    model = Cidade
     fields = ['nome', 'estado']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
 
+    
 class ServicoCreate(CreateView):
     model = Servico
     fields = ['descricao_servico', 'valor']

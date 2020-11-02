@@ -11,10 +11,12 @@ class Estado(models.Model):
         return "{} ({})".format(self.sigla, self.nome)
 
 class Cidade(models.Model):
-    nome = models .CharField(max_length=50)
+    nome = models.CharField(max_length=50)
     estado = models.ForeignKey(Estado, on_delete=models.PROTECT)
+   
 
-    
+    def __str__(self):
+        return self.nome + '/' + self.estado.sigla
 
 class User(models.Model):
     usuario = models.CharField(max_length=20)
@@ -27,7 +29,7 @@ class Perfil(models.Model):
     cpf = models.CharField(max_length=11, unique=True)
     sexo = models.CharField(max_length=10, unique=True)
     telefone = models.CharField(max_length= 20)
-    #user = models.ForeignKey(User, on_delete= models.PROTECT)
+    user = models.ForeignKey(User, on_delete= models.PROTECT)
 
     def __str__(self):
         return"{}({})".format(self.nome, self.endereco, self.cpf, self.sexo, self.telefone)
