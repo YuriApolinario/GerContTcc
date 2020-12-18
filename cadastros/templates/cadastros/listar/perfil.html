@@ -8,46 +8,46 @@
 <div class="content-wrapper">
 
     <div class="container py-5">
-    
+
         <div class="row mt-5">
             <div class="col-lg">
-    
+
                 <h3 class="border-bottom">
                     Lista de perfils cadastrados
-    <a href="{% url 'cadastro-perfil' %}" class="float-right btn btn-primary btn-sm">
-        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        Novo perfil
-    </a>
+                    <a href="{% url 'cadastro-perfil' %}" class="float-right btn btn-primary btn-sm">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        Novo perfil
+                    </a>
                 </h3>
-    
+
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-lg mt-4">
-    
+
                 <table class="table table-striped">
-    
+
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
-    
+
                     <tbody>
-    
+
                         {% for obj in object_list %}
                         <tr>
                             <td>{{ obj.nome }}</td>
                             <td>{{ obj.endereco }}</td>
                             <td>{{ obj.telefone }}</td>
-                            
+
                             <td>
                                 <a href="{% url 'editar-perfil' obj.pk %}" class="btn btn-outline-warning btn-sm">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    <i class="fa fa-pen" aria-hidden="true"></i>
                                 </a>
-                        
+
                                 <a href="{% url 'excluir-perfil' obj.pk %}" class="btn btn-outline-danger btn-sm">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
@@ -58,15 +58,15 @@
                             <td colspan="100%">Nenhum perfil cadastrado</td>
                         </tr>
                         {% endfor %}
-    
-    
+
+
                     </tbody>
-    
+
                 </table>
-    
+
             </div>
         </div>
-    
+
     </div>
 </div>
 

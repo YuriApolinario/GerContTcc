@@ -36,7 +36,7 @@ class Perfil(models.Model):
         
 class Servico(models.Model):
     descricao_servico = models.CharField(max_length=100)
-    valor = models.FloatField(max_length=10)
+    valor = models.CharField(max_length=10)
 
     def  __str__(self):
             return "{} ({})".format(self.descricao_servico, self.valor)

@@ -5,35 +5,42 @@
 {% load crispy_forms_tags %}
 
 {% block conteudo %}
-    <div class="container ">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="card-body">
-                <h1>cadastro </h1>
-                    <p class="lead">
-                        preencha todos os campos obrigatorios
-                    </p>
-                    <hr>
-                        <form action="" method="POST">
-                            <div class="row">
-                                <div class="col">
-                                {% csrf_token %}
-                                </div>
-                            </div>
-                            
-                            {{form|crispy}}
-                                
-                                <button type="submit" class="btn btn-primary"> Cadastrar</button>
-                            </form>
-            </div>
+<div class="container ">
+    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+            <h1>cadastro </h1>
+            <p class="lead">
+                preencha todos os campos obrigatorios
+            </p>
+            <hr>
+            <form action="" method="POST">
+                <div class="row">
+                    <div class="col">
+                        {% csrf_token %}
+                    </div>
+                </div>
+
+                {{form|crispy}}
+
+                <button type="submit" class="btn btn-primary"> Cadastrar</button>
+            </form>
         </div>
     </div>
+</div>
 {% endblock %}
 
-{% block scripts%}
-    <script>
-        $(document.ready(function(){
-            $("input[name*=data]").attr("type","date");
-        }));
-    </script>
+{% block scripts %}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
 
+<script>
+    $(document).ready(function () {
+
+        alert("ok");
+
+        $("#id_data").mask("00/00/0000");
+        $("#id_cpf").mask("0000.000.000-00");
+        $("#id_cnpj").mask('00.000.000/0000-00');
+        $("#id_valor").mask("R$0000.00");
+    });
+</script>
 {% endblock %}

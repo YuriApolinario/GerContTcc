@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/one-page-wonder.css' %}" rel="stylesheet">
+  <link href="{% static 'css/estilo.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet">
+
+
+
+    
+</head>
+<body>
+  {% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light " href="" >Inicio</a></li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="">Agenda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="">Contratos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      cadastros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{% url 'cadastro-estado' %}">Estado</a>
+                      <a class="dropdown-item" href="{% url 'cadastro-cidade' %}">Cidade</a> 
+                      <a class="dropdown-item" href="{% url 'cadastro-servico' %}">Servico</a>
+                      <a class="dropdown-item" href="{% url 'cadastro-propriedade' %}">Propriedade</a>
+                      <a class="dropdown-item" href="{% url 'cadastro-empresa' %}">Empresa</a>
+                      
+                    </div>
+                  </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      relatorios 
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{% url 'listar-estado' %}">relatorio estado</a>
+                      <a class="dropdown-item" href="{% url 'listar-cidade' %}">relatorio cidade</a> 
+                      <a class="dropdown-item" href="{% url 'listar-propriedade' %}">relatorio Propriedade</a>
+                      <a class="dropdown-item" href="{% url 'listar-empresa' %}">relatorio Empresa</a>
+                      <a class="dropdown-item" href="{% url 'listar-servico' %}">relatorio Serviços</a>
+                      
+                    </div>
+                  </li>
+            </ul>
+        </div>        
+    </nav>
+  {% endblock %}
+  {% block conteudo %}
+    <div class="container content-wrapper">
+
+    </div>
+  {% endblock %}
+
+  {% block rodape%}
+    <footer class="footer">
+      
+    </footer>
+  {% endblock %}
+</body>
+<script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
+  
+</html>

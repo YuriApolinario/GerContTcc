@@ -5,69 +5,76 @@
 {% endblock%}
 
 {% block conteudo %}
+{% if request.user.is_authenticated %}
 <div class="content-wrapper">
+    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+            <div class="container py-5">
 
-    <div class="container py-5">
-    
-        <div class="row mt-5">
-            <div class="col-lg">
-    
-                <h3 class="border-bottom">
-                    Lista de cidades cadastrados
-    <a href="{% url 'cadastro-cidade' %}" class="float-right btn btn-primary btn-sm">
-        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        Novo cidade
-    </a>
-                </h3>
-    
+                <div class="row mt-5">
+                    <div class="col-lg">
+
+                        <h3 class="border-bottom">
+                            Lista de cidades cadastrados
+                            <a href="{% url 'cadastro-cidade' %}" class="float-right btn btn-primary btn-sm">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                Novo cidade
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg mt-4">
+
+                        <table class="table table-striped">
+
+                            <thead>
+                                <tr>
+                                    <th>Cidade</th>
+                                    <th>Estado</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                {% for obj in object_list %}
+                                <tr>
+                                    <td>{{ obj.nome }}</td>
+                                    <td>{{ obj.estado }}</td>
+
+                                    <td>
+                                        <a href="{% url 'editar-cidade' obj.pk %}"
+                                            class="btn btn-outline-warning btn-sm">
+                                            <i class="fa fa-pen" aria-hidden="true" s></i>
+                                        </a>
+
+                                        <a href="{% url 'excluir-cidade' obj.pk %}"
+                                            class="btn btn-outline-danger btn-sm">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="100%">Nenhum cidade cadastrado</td>
+                                </tr>
+                                {% endfor %}
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+
             </div>
         </div>
-    
-        <div class="row">
-            <div class="col-lg mt-4">
-    
-                <table class="table table-striped">
-    
-                    <thead>
-                        <tr>
-                            <th>Cidade</th>
-                            <th>Estado</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-    
-                        {% for obj in object_list %}
-                        <tr>
-                            <td>{{ obj.nome }}</td>
-                            <td>{{ obj.estado }}</td>
-                            
-                            <td>
-                                <a href="{% url 'editar-cidade' obj.pk %}" class="btn btn-outline-warning btn-sm">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </a>
-                        
-                                <a href="{% url 'excluir-cidade' obj.pk %}" class="btn btn-outline-danger btn-sm">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        {% empty %}
-                        <tr>
-                            <td colspan="100%">Nenhum cidade cadastrado</td>
-                        </tr>
-                        {% endfor %}
-    
-    
-                    </tbody>
-    
-                </table>
-    
-            </div>
-        </div>
-    
     </div>
+
 </div>
+{% endif %}
 
 {% endblock %}

@@ -1,18 +1,11 @@
-{% extends 'paginas/modelo.html'%}
+{% extends 'paginas/login.html'%}
 
 {% load static %}
 
 {% load crispy_forms_tags %}
 
-{% block conteudo %}
-    <div class="container ">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="card-body">
-                <h1>cadastro </h1>
-                    <p class="lead">
-                        preencha todos os campos obrigatorios
-                    </p>
-                    <hr>
+{% block form %}
+   
                         <form action="" method="POST">
                             <div class="row">
                                 <div class="col">
@@ -23,10 +16,7 @@
                             {{form|crispy}}
                                 
                                 <button type="submit" class="btn btn-primary"> Entrar</button>
-                            </form>
-            </div>
-        </div>
-    </div>
+                        </form>
+          
 {% endblock %}
-
 
