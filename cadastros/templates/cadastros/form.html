@@ -8,7 +8,7 @@
 <div class="container ">
     <div class="card shadow-lg p-3 mb-5 bg-white rounded">
         <div class="card-body">
-            <h1>cadastro </h1>
+            <h1>{{ titulo }} </h1>
             <p class="lead">
                 preencha todos os campos obrigatorios
             </p>
@@ -35,12 +35,10 @@
 <script>
     $(document).ready(function () {
 
-        alert("ok");
-
         $("#id_data").mask("00/00/0000");
         $("#id_cpf").mask("0000.000.000-00");
         $("#id_cnpj").mask('00.000.000/0000-00');
-        $("#id_valor").mask("R$0000.00");
+        $("#id_valor").mask("R$000.00,00");
     });
 </script>
 {% endblock %}
