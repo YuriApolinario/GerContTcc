@@ -268,7 +268,7 @@ class ContratoList(LoginRequiredMixin, ListView):
 
 class ContratoDetailView(LoginRequiredMixin, DetailView):
     model = Contrato
-    template_name = 'cadastros/detail/contrato.html'
+    template_name = 'cadastros/detalhe/contrato.html' # Arrumei aqui para o arquivo certo
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -30,8 +30,9 @@
                                 <h1>Contrato de Prestação de serviço</h1>
                             </center>
                             <p>
-                                <strong> CONTRATANTE:</strong> <strong> {{ obj.nome_contratante }} </strong>, com sede e foro em <strong>cidade do contratante</strong>,
-                                localizado na <strong>Endereço do contratante</strong>,
+                                <!-- Assim você preenche os dados, sempre chamando a partir do object.oquevcquer -->
+                                <strong> CONTRATANTE:</strong> <strong>{{ object.contratante.razao_social }}</strong>, com sede e foro em <strong>{{object.cidade}}</strong>,
+                                localizado na <strong>{{object.contratante.endereco}}</strong>,
                                 inscrita no CNPJ sob n° <strong>numero do cnpj da contratada</strong> e Inscrição Estadual n°
                                 <strong>inscrição estaduar da contratada </strong>,
                                 neste ato representado pelo Sócio/Proprietário infra-assinado Sr. <strong>nome do
