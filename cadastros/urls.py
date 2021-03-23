@@ -1,9 +1,10 @@
 from django.urls import path 
 
 from .views import EstadoCreate, CidadeCreate, EmpresaCreate, PropriedadeCreate, ServicoCreate, ContratoCreate
-from .views import EmpresaUpdate, PropriedadeUpdate, ServicoUpdate, EstadoUpdate, CidadeUpdate,ContratoUpdate
-from .views import EstadoList, CidadeList, EmpresaList, PropriedadeList, ServicoList
+from .views import EmpresaUpdate, PropriedadeUpdate, ServicoUpdate, EstadoUpdate, CidadeUpdate, ContratoUpdate
+from .views import EstadoList, CidadeList, EmpresaList, PropriedadeList, ServicoList, ContratoList
 from .views import EstadoDelete, CidadeDelete, EmpresaDelete, PropriedadeDelete, ServicoDelete
+from .views import ContratoDetailView
 
 urlpatterns = [
     path('cadastros/contrato', ContratoCreate.as_view(), name = "cadastro-contrato"),
@@ -19,6 +20,8 @@ urlpatterns = [
     path('editar/empresa/<int:pk>', EmpresaUpdate.as_view(), name ="editar-empresa"),    
     path('editar/propriedade/<int:pk>', PropriedadeUpdate.as_view(), name ="editar-propriedade"),
     path('editar/servico/<int:pk>', ServicoUpdate.as_view(), name ="editar-servico"),
+    path('editar/contrato/<int:pk>', ContratoUpdate.as_view(), name ="editar-contrato"),
+
 
 
     path('excluir/estado/<int:pk>', EstadoDelete.as_view(), name="excluir-estado"),
@@ -29,9 +32,13 @@ urlpatterns = [
 
 
 
+
     path('listar/estado/', EstadoList.as_view(), name="listar-estado"),
     path('listar/cidade/', CidadeList.as_view(), name="listar-cidade"),
     path('listar/empresa/', EmpresaList.as_view(), name="listar-empresa"),
     path('listar/propriedade/', PropriedadeList.as_view(), name="listar-propriedade"),
     path('listar/servico/', ServicoList.as_view(), name="listar-servico"),
+    path('listar/contrato/', ContratoList.as_view(), name="listar-contrato"),
+
+    path('detail/contrato/<int:pk>', ContratoDetailView.as_view(), name="detail-contrato"),
 ]

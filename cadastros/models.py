@@ -53,9 +53,10 @@ class Propriedade(models.Model):
     endereco = models.CharField(max_length=100)
     area_propriedade = models.CharField(max_length=45)
     cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT)
+    empresa = models.ForeignKey(Empresa, on_delete= models.PROTECT)
 
     def __str__(self):
-        return "{} ({})".format(self.nome_propriedade, self.endereco, self.area_propriedade, self.cidade)
+        return "{} ({})".format(self.nome_propriedade, self.endereco, self.area_propriedade, self.cidade, self.empresa)
 
 class Contrato(models.Model):
     servico = models.ForeignKey(Servico, on_delete= models.PROTECT)
@@ -65,4 +66,5 @@ class Contrato(models.Model):
     registrado_por = models.ForeignKey(User, on_delete= models.PROTECT)
     registrado_em = models.DateField(auto_now=True)
     contratante = models.ForeignKey(Empresa, on_delete= models.PROTECT)
+    cidade = models.ForeignKey(Cidade, on_delete= models.PROTECT)
     

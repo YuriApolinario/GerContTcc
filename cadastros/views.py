@@ -2,6 +2,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.views.generic.detail import DetailView
+
 from .models import *
 
 from django.views.generic.list import ListView
@@ -76,7 +78,7 @@ class EmpresaCreate(LoginRequiredMixin, CreateView):
 
 class PropriedadeCreate(LoginRequiredMixin, CreateView):
     model = Propriedade
-    fields = ['nome_propriedade', 'endereco', 'area_propriedade', 'cidade']
+    fields = ['nome_propriedade', 'endereco', 'area_propriedade', 'cidade', 'empresa']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-propriedade')
 
@@ -90,7 +92,8 @@ class PropriedadeCreate(LoginRequiredMixin, CreateView):
 
 class ContratoCreate(LoginRequiredMixin, CreateView):
     model = Contrato
-    fields = ['servico', "propriedade", "data_inicial", "data_final", "contratante"]    
+    fields = ["cidade", "servico", "propriedade", "registrado_por", "data_inicial", 
+                "data_final", "contratante"]    
     template_name = 'cadastros/contrato.html'
     success_url = reverse_lazy('listar-contrato')
 
@@ -201,7 +204,7 @@ class ContratoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de Propriedade"
+        context['titulo'] = "Cadastro de contrato"
         context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
@@ -255,3 +258,18 @@ class EmpresaList(LoginRequiredMixin, ListView):
 class PropriedadeList(LoginRequiredMixin, ListView):
     model = Propriedade
     template_name = 'cadastros/listar/propriedade.html'
+
+class ContratoList(LoginRequiredMixin, ListView):
+    model = Contrato
+    template_name = 'cadastros/listar/contrato_list.html'
+
+
+###################DetailView#########################
+
+class ContratoDetailView(LoginRequiredMixin, DetailView):
+    model = Contrato
+    template_name = 'cadastros/detail/contrato.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
