@@ -14,10 +14,10 @@
             <div class="col-lg">
 
                 <h3 class="border-bottom">
-                    Lista de empresas cadastrados
-                    <a href="{% url 'cadastro-empresa' %}" class="float-right btn btn-primary btn-sm">
+                    Lista de contratos cadastrados
+                    <a href="{% url 'cadastro-contrato' %}" class="float-right btn btn-primary btn-sm">
                         <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                        Novo empresa
+                        Novo contrato
                     </a>
                 </h3>
 
@@ -33,6 +33,7 @@
                         <tr>
                             <th>Razao Social</th>
                             <th>Propriedade</th>
+                            <th>Opções</th>
                         </tr>
                     </thead>
 
@@ -46,6 +47,9 @@
                             <td>
                                 <a href="{% url 'editar-contrato' obj.pk %}" class="btn btn-outline-warning btn-sm">
                                     <i class="fa fa-pen" aria-hidden="true"></i>
+                                </a>
+                                <a href="{% url 'detail-contrato' obj.pk %}" class="btn btn-outline-primary btn-sm">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
                                 </a>
 
                             </td>
