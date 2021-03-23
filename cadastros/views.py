@@ -197,7 +197,7 @@ class PerfilUpdate(LoginRequiredMixin, UpdateView):
 
 class ContratoUpdate(LoginRequiredMixin, UpdateView):
     model = Contrato
-    fields = ['servico', "propriedade", "data_inicial", "data_final", "registrado_por", "registrado_em", "contratante"]    
+    fields = ['servico', "propriedade", "data_inicial", "data_final", "contratante"]    
     template_name = 'cadastros/contrato.html'
     success_url = reverse_lazy('listar-contrato')
 
