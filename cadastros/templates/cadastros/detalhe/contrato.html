@@ -33,35 +33,29 @@
                                 <!-- Assim você preenche os dados, sempre chamando a partir do object.oquevcquer -->
                                 <strong> CONTRATANTE:</strong> <strong>{{ object.contratante.razao_social }}</strong>, com sede e foro em <strong>{{object.cidade}}</strong>,
                                 localizado na <strong>{{object.contratante.endereco}}</strong>,
-                                inscrita no CNPJ sob n° <strong>numero do cnpj da contratada</strong> e Inscrição Estadual n°
-                                <strong>inscrição estaduar da contratada </strong>,
-                                neste ato representado pelo Sócio/Proprietário infra-assinado Sr. <strong>nome do
-                                    proprietário</strong>, casado,
-                                portador do CPF n° <strong>cpf do proprietário</strong> e RG n° <strong>RG do
-                                    proprietario</strong>.
+                                inscrita no CNPJ sob n° <strong>{{object.contratante.cnpj}}</strong> e Inscrição Estadual n°
+                                <strong>{{object.contratante.inscricao_estadual}} </strong>,
+                                neste ato representado pelo Sócio/Proprietário infra-assinado Sr. <strong>{{ object.contratante.nome_proprietario }}</strong>,
+                                portador do CPF n° <strong>{{ object.contratante.cpf }}</strong> e RG n°  <strong>{{ object.contratante.rg }}</strong>.
                             </p>
 
                             <p>
-                                <strong>CONTRATADA:</strong> <strong>nome da empresa contratada</strong>, sociedade brasileira
-                                por quotas de responsabilidade limitada ao capital, com sede no Município de <strong>cidade da
-                                    contratada</strong>, localizada na <strong>Endereço do
-                                    contratante</strong>,
-                                inscrita no CNPJ/MF sob o n° <strong>numero do cnpj da contratante</strong>, representada por
-                                seu sócio proprietário, infra-assinado, têm entre si certa e ajustada à contratação de serviços de consultoria e
+                                <strong>CONTRATADA:</strong> <strong>{{ object.contratada.razao_social }}</strong>, sociedade brasileira
+                                por quotas de responsabilidade limitada ao capital, com sede no Município de <strong> {{ object.contratada.cidade }}</strong>,
+                                inscrita no CNPJ/MF sob o n° <strong> {{ object.contratada.cnpj }}</strong>, têm entre si certa e ajustada à contratação de serviços de consultoria e
                                 assessoria que se regerá pelas seguintes cláusulas:
                             </p>
 
                             <p>
                                 Cláusula 1ª - Pelo presente contrato de prestação de serviço, a CONTRATADA,
-                                obriga-se a prestar para as seguintes empresas <strong>nome da epresa contratante</strong> com
-                                CNPJ n° <strong>numero do cnpj do contratante</strong>
-                                localizada em <strong>cidade contratada</strong>, os seguintes serviços.:
+                                obriga-se a prestar para as seguintes empresas <strong> {{ object.contratante.razao_social }}</strong> com
+                                CNPJ n° <strong> {{ object.contratante.cnpj }}</strong>
+                                localizada em <strong> {{object.contratante.cidade}}</strong>, os seguintes serviços.:
                             </p>
 
                             <p>
                             <ul>
-                                <li>serviço 1</li>
-                                <li>serviço 2</li>
+                                <li> {{ object.servico.descricao_servico }}</li>
                             </ul>
                             </p>
 
@@ -74,7 +68,7 @@
                             <p>
                                 Cláusula 2ª - A CONTRATANTE pagará à CONTRATADA, mediante apresentação de recibo de
                                 prestação de serviços de Consultoria Ambiental e Consultoria em Segurança no Trabalho,
-                                o valor de <strong>Valor dos serviços prestados</strong> (valor por extenso ), por mês.
+                                o valor de <strong> {{ object.contratante.valor }}</strong>, por mês.
 
                             </p>
 
@@ -105,7 +99,7 @@
 
                             <p>
                                 <strong>
-                                    <h2>nome da contratada:</h2>
+                                    <h4>{{ object.contratada.razao_social }}</h4>
                                 </strong>
                             <ul>
                                 <li>Atender a todos os requisitos solicitados pela legislação relacionados com o serviço a ser
@@ -116,7 +110,7 @@
 
                             <p>
                                 <strong>
-                                    <h2>nome da empresa contratante:</h2>
+                                    <h4> {{ object.contratante.razao_social }} </h4>
                                 </strong>
                             <ul>
                                 <li>Fornecer acesso a todas as áreas da empresa;</li>
@@ -127,10 +121,9 @@
                             </p>
 
                             <p>
-                                Parágrafo único: A proponente e os profissionais da equipe da <strong>nome da contratada
+                                Parágrafo único: A proponente e os profissionais da equipe da <strong>{{ object.contratada.razao_social }}
                                 </strong> se comprometem
-                                a manter como confidenciais todas as informações colocadas pela empresa <strong>nome do
-                                    contratante</strong>,
+                                a manter como confidenciais todas as informações colocadas pela empresa <strong> {{ object.contratante.razao_social }} </strong>,
                                 não divulgando tais informações a terceiros sob nenhuma forma e utilizando-as somente para
                                 os fins deste contrato.
 
@@ -138,7 +131,7 @@
 
                             <p>
                                 Cláusula 6ª - O presente contrato de prestação de serviço, uma vez assinado,
-                                vigorará pelo prazo de um ano, iniciando-se em <strong>data de inicio de contratato</strong> e
+                                vigorará pelo prazo de um ano, iniciando-se em <strong>{{ object.contrato.data_inicial }}</strong> e
                                 terminando em 01 de março de 2013,
                                 e findo o prazo contratual, ficará renovado automaticamente por igual período, no caso de não
                                 haver
@@ -179,8 +172,7 @@
                             </p>
 
                             <p>
-                                As partes elegem a foro da Cidade de <strong>cidade do contratada</strong>, cidade da
-                                    contratada,
+                                As partes elegem a foro da Cidade de <strong>{{ object.contratada.cidade }}</strong>,
                                 para dirimir qualquer questão concernente ao presente contrato.
                             </p>
 
@@ -202,13 +194,13 @@
                                     <p>
                                     <h4>Assinaturas</h4> <br>
                                     ________________________________________ <br>
-                                    <strong>nome da contratante</strong> <br>
+                                    <strong>{{ object.contratante.razao_social }}</strong> <br>
                                     <strong>Contratante</strong> <br>
                                     <br>
                                     <br>
                                     <br>
                                     ________________________________________ <br>
-                                    <strong>nome da contratada</strong> <br>
+                                    <strong>{{ object.contratada.razao_social }}</strong> <br>
                                     <strong>Contratada</strong> <br>
                                     <br>
                                     <br>

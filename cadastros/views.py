@@ -62,7 +62,7 @@ class ServicoCreate(LoginRequiredMixin, CreateView):
 
 class EmpresaCreate(LoginRequiredMixin, CreateView):
     model = Empresa
-    fields = ['razao_social', 'cnpj',
+    fields = ['nome_proprietario', 'cpf', 'rg', 'razao_social', 'cnpj',
         'inscricao_estadual', 'endereco', 'minha_empresa']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-empresa')
@@ -93,7 +93,7 @@ class PropriedadeCreate(LoginRequiredMixin, CreateView):
 class ContratoCreate(LoginRequiredMixin, CreateView):
     model = Contrato
     fields = ["cidade", "servico", "propriedade", "registrado_por", "data_inicial", 
-                "data_final", "contratante"]    
+                "data_final", "contratante", "contratada"]    
     template_name = 'cadastros/contrato.html'
     success_url = reverse_lazy('listar-contrato')
 
@@ -106,6 +106,22 @@ class ContratoCreate(LoginRequiredMixin, CreateView):
 
         return url
         
+class ConfiguracaoSistemaCreate(LoginRequiredMixin, CreateView):
+    model = ConfiguracaoSistema
+    fields = ['razao_social', 'nome_fantasia', 'cnpj',
+        'inscricao_estadual', 'cidade', 'endereco', 'bairro', 'cep', 'email']
+    template_name = 'cadastros/form.html'
+    success_url = reverse_lazy('listar-contrato')
+
+
+    def get_context_data(self, *args, **kwargs):
+            context = super().get_context_data(*args, **kwargs)
+
+            context['titulo'] = "Configuração sistema"
+            context['botao'] = "Cadastrar"
+
+            return context
+
 ######################## UPDATE #######################
 
 class EstadoUpdate(LoginRequiredMixin, UpdateView):
@@ -153,7 +169,7 @@ class ServicoUpdate(LoginRequiredMixin, UpdateView):
 
 class EmpresaUpdate(LoginRequiredMixin, UpdateView):
     model = Empresa
-    fields = ['razao_social', 'cnpj', 'inscricao_estadual', 'endereco', 'minha_empresa']
+    fields = ['nome_proprietario', 'cpf', 'rg', 'razao_social', 'cnpj', 'inscricao_estadual', 'endereco', 'minha_empresa']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-empresa')
 
@@ -168,7 +184,7 @@ class EmpresaUpdate(LoginRequiredMixin, UpdateView):
 
 class PropriedadeUpdate(LoginRequiredMixin, UpdateView):
     model = Propriedade
-    fields = ['nome_propriedade', 'endereco', 'area_propriedade']
+    fields =['nome_propriedade', 'endereco', 'area_propriedade', 'cidade', 'empresa']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-propriedade')
 
