@@ -21,48 +21,6 @@
     
 </head>
 <body>
-  {% block menu %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <div class="collapse navbar-collapse container" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-light " href="{% #}" >Inicio</a></li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="">Agenda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="">Contratos</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      cadastros
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{% url 'cadastro-estado' %}">Estado</a>
-                      <a class="dropdown-item" href="{% url 'cadastro-cidade' %}">Cidade</a> 
-                      <a class="dropdown-item" href="{% url 'cadastro-servico' %}">Servico</a>
-                      <a class="dropdown-item" href="{% url 'cadastro-propriedade' %}">Propriedade</a>
-                      <a class="dropdown-item" href="{% url 'cadastro-empresa' %}">Empresa</a>
-                      
-                    </div>
-                  </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      relatorios 
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{% url 'listar-estado' %}">relatorio estado</a>
-                      <a class="dropdown-item" href="{% url 'listar-cidade' %}">relatorio cidade</a> 
-                      <a class="dropdown-item" href="{% url 'listar-propriedade' %}">relatorio Propriedade</a>
-                      <a class="dropdown-item" href="{% url 'listar-empresa' %}">relatorio Empresa</a>
-                      <a class="dropdown-item" href="{% url 'listar-servico' %}">relatorio Serviços</a>
-                      
-                    </div>
-                  </li>
-            </ul>
-        </div>        
-    </nav>
-  {% endblock %}
   {% block conteudo %}
     <div class="container content-wrapper">
 

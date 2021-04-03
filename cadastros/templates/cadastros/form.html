@@ -30,15 +30,16 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+    
+    <script>
+        $(document).ready(function(){
+            
+            $("#id_data").mask("00/00/0000");
+            $("#id_cpf").mask("000.000.000-00");
+            $("#id_cnpj").mask('00.000.000/0000-00');
+            $("#id_valor").mask("R$000,00");
 
-<script>
-    $(document).ready(function () {
-
-        $("#id_data").mask("00/00/0000");
-        $("#id_cpf").mask("000.000.000-00");
-        $("#id_cnpj").mask('00.000.000/0000-00');
-        $("#id_valor").mask("R$000,00");
-    });
-</script>
+        });
+    </script>
 {% endblock %}

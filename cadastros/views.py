@@ -111,7 +111,7 @@ class ConfiguracaoSistemaCreate(LoginRequiredMixin, CreateView):
     fields = ['razao_social', 'nome_fantasia', 'cnpj',
         'inscricao_estadual', 'cidade', 'endereco', 'bairro', 'cep', 'email']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('listar-contrato')
+    success_url = reverse_lazy('index')
 
 
     def get_context_data(self, *args, **kwargs):
@@ -133,7 +133,7 @@ class EstadoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de Estado"
+        context['titulo'] = "Cadastro de Estados"
         context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
         return context
@@ -147,7 +147,7 @@ class CidadeUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de Cidade"
+        context['titulo'] = "Cadastro de Cidades"
         context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
@@ -162,7 +162,7 @@ class ServicoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de Servico"
+        context['titulo'] = "Cadastro de Servicos"
         context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
         return context
@@ -176,7 +176,7 @@ class EmpresaUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de Empresa"
+        context['titulo'] = "Cadastro de Empresas"
         context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
 
@@ -191,7 +191,7 @@ class PropriedadeUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
 
-        context['titulo'] = "Cadastro de Propriedade"
+        context['titulo'] = "Cadastro de Propriedades"
         context['botao'] = "Atualizar"
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
         return context
