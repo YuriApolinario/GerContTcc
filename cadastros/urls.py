@@ -1,7 +1,7 @@
 from django.urls import path 
 
 from .views import EstadoCreate, CidadeCreate, EmpresaCreate, PropriedadeCreate, ServicoCreate, ContratoCreate, ConfiguracaoSistemaCreate
-from .views import EmpresaUpdate, PropriedadeUpdate, ServicoUpdate, EstadoUpdate, CidadeUpdate, ContratoUpdate, PerfilUpdate
+from .views import EmpresaUpdate, PropriedadeUpdate, ServicoUpdate, EstadoUpdate, CidadeUpdate, ContratoUpdate
 from .views import EstadoList, CidadeList, EmpresaList, PropriedadeList, ServicoList, ContratoList
 from .views import EstadoDelete, CidadeDelete, EmpresaDelete, PropriedadeDelete, ServicoDelete
 from .views import ContratoDetailView
@@ -22,7 +22,7 @@ urlpatterns = [
     path('editar/propriedade/<int:pk>', PropriedadeUpdate.as_view(), name ="editar-propriedade"),
     path('editar/servico/<int:pk>', ServicoUpdate.as_view(), name ="editar-servico"),
     path('editar/contrato/<int:pk>', ContratoUpdate.as_view(), name ="editar-contrato"),
-    path('cadastros/perfil/<int:pk>', PerfilUpdate.as_view(), name ="editar-perfil"),
+    
 
 
 

@@ -20,38 +20,26 @@ class Cidade(models.Model):
     def __str__(self):
         return self.nome + '/' + self.estado.sigla
 
-
-class Perfil(models.Model):
-    nome = models.CharField(max_length=100)
-    endereco = models.CharField(max_length=100)
-    cpf = models.CharField(max_length=14, unique=True)
-    sexo = models.CharField(max_length=10, unique=True)
-    telefone = models.CharField(max_length= 20)
-    usuario = models.ForeignKey(User, on_delete= models.PROTECT, verbose_name="usuário")
-
-    def __str__(self):
-        return"{}({})".format(self.nome, self.endereco, self.cpf, self.sexo, self.telefone)
-
-
 class Servico(models.Model):
     descricao_servico = models.CharField(max_length=100 )
-    valor = models.DecimalField(decimal_places=2, max_digits=8, verbose_name="Valor R$")
+    valor = models.CharField(max_length=9)
 
     def  __str__(self):
             return "{} ({})".format(self.descricao_servico, self.valor)
 
 class Empresa(models.Model):
+    cidade = models.ForeignKey(Cidade, on_delete=models.PROTECT)
     nome_proprietario = models.CharField(max_length=100)
-    cpf = models.CharField(max_length=14)
-    rg = models.CharField(max_length=15)
+    cpf = models.CharField(max_length=14, unique=True )
+    rg = models.CharField(max_length=15, unique=True)
     razao_social = models.CharField(max_length=100)
     cnpj = models.CharField(max_length=18, unique=True, verbose_name="CNPJ")
     inscricao_estadual = models.CharField(max_length=45, verbose_name="Inscrição Estadual")
     endereco = models.CharField(max_length=100)
-    minha_empresa = models.CharField(max_length=100)
 
     def __str__(self):
-        return "{} ({})".format(self.nome_proprietario, self.cpf, self.cnpj, self.razao_social, self.cnpj, self.inscricao_estadual, self.endereco, self.minha_empresa)
+        return "{} ({})".format(self.nome_proprietario, self.cpf, self.cnpj, 
+                self.razao_social, self.cnpj, self.inscricao_estadual, self.endereco)
 
 class Propriedade(models.Model):
     nome_propriedade = models.CharField(max_length=45)

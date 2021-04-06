@@ -62,8 +62,8 @@ class ServicoCreate(LoginRequiredMixin, CreateView):
 
 class EmpresaCreate(LoginRequiredMixin, CreateView):
     model = Empresa
-    fields = ['nome_proprietario', 'cpf', 'rg', 'razao_social', 'cnpj',
-        'inscricao_estadual', 'endereco', 'minha_empresa']
+    fields = ['cidade','nome_proprietario', 'cpf', 'rg', 'razao_social', 'cnpj',
+        'inscricao_estadual', 'endereco']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-empresa')
 
@@ -169,7 +169,7 @@ class ServicoUpdate(LoginRequiredMixin, UpdateView):
 
 class EmpresaUpdate(LoginRequiredMixin, UpdateView):
     model = Empresa
-    fields = ['nome_proprietario', 'cpf', 'rg', 'razao_social', 'cnpj', 'inscricao_estadual', 'endereco', 'minha_empresa']
+    fields = ['cidade','nome_proprietario', 'cpf', 'rg', 'razao_social', 'cnpj', 'inscricao_estadual', 'endereco']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-empresa')
 
@@ -196,24 +196,9 @@ class PropriedadeUpdate(LoginRequiredMixin, UpdateView):
         context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
         return context
 
-class PerfilUpdate(LoginRequiredMixin, UpdateView):
-    login_url =reverse_lazy('login')
-    model = Perfil
-    fields = ['nome', 'endereço', 'cpf', 'rg', 'sexo', 'telefone', 'usuario']
-    template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('listar-perfil')
-
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-
-        context['titulo'] = "Cadastro de perfil"
-        context['botao'] = "Atualizar"
-        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
-        return context
-
 class ContratoUpdate(LoginRequiredMixin, UpdateView):
     model = Contrato
-    fields = ['servico', "propriedade", "data_inicial", "data_final", "contratante"]    
+    fields = ['cidade','servico', "propriedade", "data_inicial", "data_final", "contratante"]    
     template_name = 'cadastros/contrato.html'
     success_url = reverse_lazy('listar-contrato')
 
