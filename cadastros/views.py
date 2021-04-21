@@ -274,3 +274,11 @@ class ContratoDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+class EmpresaDetailView(LoginRequiredMixin, DetailView):
+    model = Empresa
+    template_name = 'cadastros/detalhe/empresa.html' # Arrumei aqui para o arquivo certo
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

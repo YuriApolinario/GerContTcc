@@ -34,6 +34,7 @@
                     <thead>
                         <tr>
                             <th>Razao Social</th>
+                            <th>Proprietario</th>
                             <th>CNPJ</th>
                         </tr>
                     </thead>
@@ -43,6 +44,7 @@
                         {% for obj in object_list %}
                         <tr>
                             <td>{{ obj.razao_social }}</td>
+                            <td>{{ obj.nome_proprietario }}</td>
                             <td>{{ obj.cnpj }}</td>
 
                             <td>
@@ -72,12 +74,11 @@
     </div>
 </div>
 {% endif %}
-
 {% endblock %}
 
 {% block scripts %} 
 
-     <script>
+      <script>
 
          $(document).ready(function () {
             $("#tabelaListar").DataTable();    

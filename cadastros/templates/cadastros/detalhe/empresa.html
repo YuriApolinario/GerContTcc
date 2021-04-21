@@ -1,0 +1,56 @@
+{% extends 'paginas/index.html'%}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+<title>Cadastro de contrato</title>
+
+{% endblock%}
+
+{% block conteudo %}
+<div class="container row">
+    <div class="row">
+        <div class="col container-fluid">
+            <div class=" format container p-3 mb-5 bg-white">
+                <div class="format">
+                    <center>
+                        <h1>Relatorio de clientes</h1>
+
+                        <table class="table table-striped" id="tabelaListar">
+
+                            <thead>
+                                <tr>
+                                    <th>Razao Social</th>
+                                    <th>Proprietario</th>
+                                    <th>CNPJ</th>
+                                </tr>
+                            </thead>
+        
+                            <tbody>
+        
+                                <tr>
+                                    <td>{{ object.empresa.razao }}</td>
+                                    <td>{{ object.empresa.nome_proprietario }}</td>
+                                    <td>{{ object.empresa.cnpj }}</td>
+        
+                                            
+                                </tr>
+                              
+        
+        
+                            </tbody>
+        
+                        </table>
+
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block rodape %}
+
+{% endblock %}

@@ -8,7 +8,7 @@ from .models import Perfil
 
 # Create your views here.
 class UsuarioCreate(CreateView):
-    template_name = "usuarios/form.html"
+    template_name = "cadastros/form.html"
     form_class = UsuarioForm
     success_url = reverse_lazy('login')
 
@@ -35,7 +35,7 @@ class UsuarioCreate(CreateView):
 
     
 class PerfilUpdate(UpdateView):
-    template_name = "usuarios/form.html"
+    template_name = "cadastros/form.html"
     model = Perfil
     fields = ["nome_completo", "cpf", "telefone"]
     success_url = reverse_lazy("index")

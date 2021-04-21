@@ -4,7 +4,7 @@ from .views import EstadoCreate, CidadeCreate, EmpresaCreate, PropriedadeCreate,
 from .views import EmpresaUpdate, PropriedadeUpdate, ServicoUpdate, EstadoUpdate, CidadeUpdate, ContratoUpdate
 from .views import EstadoList, CidadeList, EmpresaList, PropriedadeList, ServicoList, ContratoList
 from .views import EstadoDelete, CidadeDelete, EmpresaDelete, PropriedadeDelete, ServicoDelete
-from .views import ContratoDetailView
+from .views import ContratoDetailView, EmpresaDetailView
 
 urlpatterns = [
     path('cadastros/contrato', ContratoCreate.as_view(), name = "cadastro-contrato"),
@@ -43,4 +43,5 @@ urlpatterns = [
     path('listar/contrato/', ContratoList.as_view(), name="listar-contrato"),
 
     path('detail/contrato/<int:pk>', ContratoDetailView.as_view(), name="detail-contrato"),
+    path('detail/empresa/<int:pk>', EmpresaDetailView.as_view(), name="detail-empresa"),
 ]
